@@ -36,7 +36,7 @@ return (
                 (<nav className='md:hidden mt-4 pb-4 border-t border-light pt-4 transition-all duration-300 ease-in-out'>
                     <div className='flex flex-col space-y-4 text-light'>
                         { links.map((link) => (
-                            <a href={`#${link.toLowerCase()}`} className='hover:text-yellow' key={link}>{link}</a>
+                            <a href={`#${link.toLowerCase()}`} className='hover:text-yellow' key={link} onClick={() => setMenu(false)}>{link}</a>
                         ))}
                     </div>
                 </nav>)
