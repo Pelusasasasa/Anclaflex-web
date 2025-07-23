@@ -12,7 +12,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-ligth: var(--white-color);
+  --color-light: var(--white-color);
   --color-orange: var(--orange-color);
   --color-yellow: var(--yellow-color);
   --color-dark: var(--dark-color);
