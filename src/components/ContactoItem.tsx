@@ -14,8 +14,8 @@ export const ContactoItem = ({tipo, bgIcon, icon, textos}: Contacto) => {
         <p className='text-center font-bold mb-3'>{tipo}</p>
 
         <div className='space-y-1'>
-            { textos.map(texto => (
-                <p key={`${tipo}-${texto}`} className='text-center'>{texto}</p>
+            { textos.map((texto, index) => (
+                <p key={index} className='text-center'>{texto}</p>
             ))}
         </div>
     </div>

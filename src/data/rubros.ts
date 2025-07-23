@@ -4,7 +4,23 @@ export const rubros: Rubro[] = [
     {
         img: '/images/Rubro1.jpeg',
         titulo: 'Pinturas',
-        texto: 'Pinturas para interiores y exteriores de las mejores marcas'
+        texto: 'Pinturas para interiores y exteriores de las mejores marcas',
+        textoDescriptivo: 'Ofrecemos una completa línea de pinturas para interiores y exteriores, con productos de primera calidad que garantizan durabilidad, cobertura y acabados perfectos para cualquier tipo de proyecto',
+        caracteristicas: [
+            'Pinturas látex para interiores y exteriores',
+            'Esmaltes sintéticos y al agua',
+            'Pinturas especiales: antihumedad, antimanchas',
+            'Imprimaciones y selladores',
+            'Pinturas decorativas y efectos especiales',
+            'Asesoramiento en colores y acabados'
+        ],
+        aplicaciones: [
+            'Paredes interiores y exteriores',
+            'Techos y cielorrasos',
+            'Carpintería de madera y metal',
+            'Fachadas y medianeras',
+            'Proyectos decorativos especiales'
+        ]
     },
     {
         img: '/images/Perfiles.jpeg',

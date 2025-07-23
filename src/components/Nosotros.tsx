@@ -11,17 +11,15 @@ export const Nosotros = () => {
 
                         <article className='space-y-6 text-lg text-dark'>
                             <p>
-                                Con más de 20 años de experiencia, <strong>Anclaflex</strong> lidera el mercado en pinturas, perfiles y accesorios para la construcción.
+                                <strong>AnclaCentro</strong> es líder en la distribución de materiales para la construcción, ofreciendo productos de máxima calidad en rubros como grifería, pinturas, revestimientos plásticos, placas de PVC y construcción en seco.
                             </p>
 
                             <p>
-                                Nuestro compromiso es brindar productos de la más alta calidad,
-                                respaldados por las mejores marcas del mercado y un servicio personalizado que garantiza la satisfacción de nuestros clientes.
+                                Nos respaldan las mejores marcas del mercado y un servicio personalizado que asegura la satisfacción de nuestros clientes.
                             </p>
 
                             <p>
-                                Trabajamos tanto con profesionales de la construcción como con particulares,
-                                ofreciendo asesoramiento técnico especializado y soluciones integrales para cada proyecto.
+                                Trabajamos junto a profesionales de la construcción y particulares, brindando asesoramiento técnico y soluciones integrales para cada proyecto.
                             </p>
                         </article>
                     </div>

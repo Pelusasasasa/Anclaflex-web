@@ -1,8 +1,10 @@
 import { Rubro } from '@/interface/rubro'
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 import React from 'react'
 import { CiMail } from 'react-icons/ci';
-import { FaWhatsapp } from 'react-icons/fa';
+import { MdArrowForwardIos } from 'react-icons/md';
+import { Button } from './Button';
 
 interface Props extends Rubro {
     whatsApp?: boolean;
@@ -10,7 +12,14 @@ interface Props extends Rubro {
 }
 
 export const RubroCard = ({ titulo, texto, img, whatsApp, mail}: Props) => {
-  return (
+    const router = useRouter()
+
+    const navegar = () => {
+        router.push(`/rubro/${titulo.toLowerCase()}`)
+    };
+
+    return (
+
     <article className='p-0 group hover:shadow-xl shadow-xs bg-white rounded-t-lg rounded-b-lg flex flex-col'>
     
         <div className='relative h-48 overflow-hidden rounded-t-lg'>
@@ -30,16 +39,15 @@ export const RubroCard = ({ titulo, texto, img, whatsApp, mail}: Props) => {
 
             <div className='flex justify-center gap-5 pt-3 pb-5'>
                 { whatsApp  && (
-                    <button className='bg-green-500 flex gap-3 py-1 px-3 rounded-sm hover:cursor-pointer hover:bg-green-600'>
-                        <FaWhatsapp size={25} />
-                        <p>WhatsApp</p>
-                    </button>
+                    <Button type='whatsapp' texto='WhatsApp'/>
                 )}
 
                 { mail  && (
-                    <button className='bg-yellow flex gap-3 py-1 px-3 rounded-sm hover:cursor-pointer hover:bg-yellow-600'>
-                        <CiMail size={25} />
-                        <p>Email</p>
+                    <button onClick={navegar} className='bg-dark flex items-center gap-3 py-1 px-3 rounded-sm hover:cursor-pointer hover:bg-yellow-600'>
+                        {/* <CiMail size={25} />
+                        <p>Email</p> */}
+                        <p>Ver Mas</p>
+                        <MdArrowForwardIos/>
                     </button>
                 )}
             </div>

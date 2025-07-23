@@ -22,7 +22,7 @@ return (
                 {/* Navegacion Desktop */}
                 <nav className='hidden md:flex gap-5 font-helvetica text-light' aria-label='Navegacion Principal'>
                     { links.map((link) => (
-                        <a href={`#${link.toLowerCase()}`} className='hover:text-yellow' key={link}>{link}</a>
+                        <a href={`/#${link.toLowerCase()}`} className='hover:text-yellow' key={link}>{link}</a>
                     ))}
                 </nav>
 
