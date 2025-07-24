@@ -23,28 +23,28 @@ export const rubros: Rubro[] = [
         ]
     },
     {
-        img: '/images/Perfiles.jpeg',
-        titulo: 'Perfiles',
-        texto: 'Perfiles de aluminio y PVC para construccion'
+        img: '/images/Bachas.jpeg',
+        titulo: 'Griferia',
+        texto: 'Grifería para cocina y baño de las mejores marcas'
     },
     {
-        img: '/images/Bachas.jpeg',
-        titulo: 'Bachas',
-        texto: 'Bachas para cocina y baño en diversos materiales'
+        img: '/images/Revestimientos.webp',
+        titulo: 'Revestimientos',
+        texto: 'Revestimientos cerámicos y porcelanatos para todos los ambientes'
     },
     {
         img: '/images/Herramientas.jpeg',
         titulo: 'Herramientas',
-        texto: 'Herramientas profesionales para pintura y construcción'
+        texto: 'Herramientas y Accesorios'
     },
     {
-        img: '/images/Accesorios.webp',
-        titulo: 'Accesorios',
-        texto: 'Rodillos, pinceles y accesorios de pintura'
+        img: '/images/PlacasPVC.webp',
+        titulo: 'Placas PVC',
+        texto: 'Placas de PVC para revestimientos y construcción en seco'
     },
     {
-        img: '/images/Impermeabilizantes.webp',
-        titulo: 'Impermeabilizantes',
-        texto: 'Productos para impermeabilización y sellado'
+        img: '/images/Perfiles.jpeg',
+        titulo: 'Material de Construcción en Seco',
+        texto: 'Durlock, perfiles y accesorios para construcción en seco'
     }
 ]

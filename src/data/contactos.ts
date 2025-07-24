@@ -8,7 +8,7 @@ export const contactos: Contacto[] = [
         tipo: 'Telefono',
         bgIcon: 'bg-yellow',
         icon: BiPhone,
-        textos: ['+543456445977', '+543456445977']
+        textos: ['+543456445977']
     },
 
     {

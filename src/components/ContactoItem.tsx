@@ -1,6 +1,7 @@
 import { Contacto } from '@/interface/contacto'
 import React from 'react'
 import {  IconType } from 'react-icons';
+import { BsWhatsapp } from 'react-icons/bs';
 
 export const ContactoItem = ({tipo, bgIcon, icon, textos}: Contacto) => {
   const Icon: IconType = icon;
@@ -15,7 +16,15 @@ export const ContactoItem = ({tipo, bgIcon, icon, textos}: Contacto) => {
 
         <div className='space-y-1'>
             { textos.map((texto, index) => (
-                <p key={index} className='text-center'>{texto}</p>
+                <p key={index} className='text-center'>{
+                  tipo === 'Telefono'
+                  ? (
+                    <div className='flex gap-2 items-center cursor-pointer'>
+                      <BsWhatsapp color='green'/>
+                      <p>{texto}</p>
+                    </div>
+                  ) : (<p>{texto}</p>)
+                }</p>
             ))}
         </div>
     </div>
