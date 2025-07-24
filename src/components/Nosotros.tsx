@@ -7,7 +7,7 @@ export const Nosotros = () => {
             <div className='container mx-auto px-4'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 items-center gap-12 my-15'>
                     <div className='flex flex-col gap-5 text-dark font-helvetica'>
-                        <h2 className='text-4xl md:text-5xl mb-6 font-bold'>Sobre Anclacentro</h2>
+                        <h2 className='text-4xl md:text-5xl mb-6 font-bold'>Sobre Nosotros</h2>
 
                         <article className='space-y-6 text-lg text-dark'>
                             <p>

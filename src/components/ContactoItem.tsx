@@ -16,7 +16,7 @@ export const ContactoItem = ({tipo, bgIcon, icon, textos}: Contacto) => {
 
         <div className='space-y-1'>
             { textos.map((texto, index) => (
-                <p key={index} className='text-center'>{
+                <div key={index} className='text-center'>{
                   tipo === 'Telefono'
                   ? (
                     <div className='flex gap-2 items-center cursor-pointer'>
@@ -24,7 +24,7 @@ export const ContactoItem = ({tipo, bgIcon, icon, textos}: Contacto) => {
                       <p>{texto}</p>
                     </div>
                   ) : (<p>{texto}</p>)
-                }</p>
+                }</div>
             ))}
         </div>
     </div>

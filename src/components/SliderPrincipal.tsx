@@ -11,7 +11,7 @@ import { Button } from './Button';
 
 export const SliderPrincipal = () => {
   return (
-    <section className='w-full bg-gray-100 lg:h-[600px]'>
+    <section className='w-full bg-gray-100 md:h-[400px] h-[250px] lg:h-[600px]'>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={10}
