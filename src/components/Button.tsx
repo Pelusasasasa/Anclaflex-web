@@ -12,7 +12,7 @@ export const Button = ({texto, className, type}: Props) => {
 
   if(type === 'whatsapp'){
     return (
-      <button className={`bg-green-500 justify-center flex items-center gap-3 py-1 px-3 rounded-sm hover:cursor-pointer hover:bg-green-600 ${className}`}>
+      <button className={`bg-green-600 justify-center flex items-center gap-3 py-1 px-3 rounded-sm hover:cursor-pointer hover:bg-green-700 ${className}`}>
           <FaWhatsapp size={15} />
           <p>{texto}</p>
       </button>

@@ -25,7 +25,9 @@ export default function RubroScreen(){
   if(!rubro){
     return (
       <div>
+        <Navbar/>
         <h3>Cargandoooo...</h3>
+        <Footer/>
       </div>
     )
   }

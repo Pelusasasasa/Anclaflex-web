@@ -2,7 +2,6 @@ import { Rubro } from '@/interface/rubro'
 import Image from 'next/image'
 import { useRouter } from 'next/router';
 import React from 'react'
-import { CiMail } from 'react-icons/ci';
 import { MdArrowForwardIos } from 'react-icons/md';
 import { Button } from './Button';
 
@@ -37,15 +36,13 @@ export const RubroCard = ({ titulo, texto, img, whatsApp, mail}: Props) => {
         <div className='flex flex-col mt-auto'>
             <h3 className='text-lg text-center text-yellow'>¡Consultanos tu Presupuesto!</h3>
 
-            <div className='flex justify-center gap-5 pt-3 pb-5'>
+            <div className='flex justify-center text-light gap-5 pt-3 pb-5'>
                 { whatsApp  && (
                     <Button type='whatsapp' texto='WhatsApp'/>
                 )}
 
                 { mail  && (
                     <button onClick={navegar} className='bg-dark flex items-center gap-3 py-1 px-3 rounded-sm hover:cursor-pointer hover:bg-yellow-600'>
-                        {/* <CiMail size={25} />
-                        <p>Email</p> */}
                         <p>Ver Mas</p>
                         <MdArrowForwardIos/>
                     </button>
@@ -53,5 +50,5 @@ export const RubroCard = ({ titulo, texto, img, whatsApp, mail}: Props) => {
             </div>
         </div>
     </article>
-  )
+)
 }
