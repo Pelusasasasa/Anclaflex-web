@@ -12,7 +12,7 @@ export const Footer = () => {
             <div className='container mx-auto text-light font-helvetica'>
             <div className='border-b-light border-b grid grid-cols-1 text-center md:text-left md:grid-cols-3 pb-10'>
                 <div className='mx-5'>
-                    <Image src="/images/Logo.png" alt='Imagen logo del pie de pagina' width={600} height={500} className='w-40' />
+                    <Image src="/images/Logo.png" alt='Imagen logo del pie de pagina' width={150} height={150} />
                     <p className='font-normal'>Tu socio confiable en pinturas y Construcción</p>
                 </div>
 
@@ -23,7 +23,7 @@ export const Footer = () => {
                         <ul className='flex flex-col gap-2'>
                             {links.map(link => (
                                 <li key={link}>
-                                    <a href={`#${link.toLowerCase()}`} className='hover:text-yellow font-extralight'>{link}</a>
+                                    <a href={`/#${link.toLowerCase()}`} className='hover:text-yellow font-extralight'>{link}</a>
                                 </li>
                             ))}
                         </ul>
@@ -36,11 +36,11 @@ export const Footer = () => {
                     <address className='flex flex-col gap-2'>
                         <p  className='font-extralight'>Av. Belgrano 1340</p>
                         <p  className='font-extralight'>Chajari, Entre Rios</p>
-                        <a href={urlWSAPGeneral} target='_blank' className='font-extralight hover:font-normal flex gap-2 items-center cursor-pointer'>
+                        <a href={urlWSAPGeneral} target='_blank' className='font-extralight md:justify-start justify-center hover:font-normal flex gap-2 items-center cursor-pointer'>
                             <FaWhatsapp size={15} color='green'/>
                             +{telefono}
                         </a>
-                        <a href={urlMail} target='_blank'  className='font-extralight hover:font-normal flex gap-2 items-center cursor-pointer'>
+                        <a href={urlMail} target='_blank'  className='font-extralight md:justify-start justify-center hover:font-normal flex gap-2 items-center cursor-pointer'>
                             <CiMail size={15} className='text-yellow'/>
                             {mail}
                         </a>

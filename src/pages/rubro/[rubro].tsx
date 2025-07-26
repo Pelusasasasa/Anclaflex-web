@@ -17,7 +17,7 @@ export default function RubroScreen(){
   
   useEffect(() => {
     if(pathName){
-      const rubroTraido = rubros.find(elem => elem.titulo.toLowerCase() === pathName.split('/')[2]);
+      const rubroTraido = rubros.find(elem => elem.titulo.toLowerCase() === decodeURIComponent(pathName).split('/')[2]);
       setRubro(rubroTraido)
     }
   }, [pathName]);

@@ -25,7 +25,7 @@ export const Nosotros = () => {
                     </div>
 
                     <div className='relative'>
-                        <Image src='/images/Nosostros.webp' alt='Fachada de la empresa Anclacentro en su local principal' width={600} loading='lazy' decoding='async'  height={500} className='shadow-2xl rounded-lg' />
+                        <Image src='/images/Nosostros.webp' alt='Fachada de la empresa Anclacentro en su local principal' width={600} loading='lazy' decoding='async'  height={500} className='shadow-2xl rounded-lg w-auto h-auto' />
                     </div>
                 </div>
             </div>

@@ -18,7 +18,6 @@ export const RubroCard = ({ titulo, texto, textoWhatsApp, img, whatsApp, mail}: 
         router.push(`/rubro/${titulo.toLowerCase()}`)
     };
 
-    console.log(urlWSAP + textoWhatsApp);
 
     return (
 
