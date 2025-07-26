@@ -20,31 +20,37 @@ export const rubros: Rubro[] = [
             'Carpintería de madera y metal',
             'Fachadas y medianeras',
             'Proyectos decorativos especiales'
-        ]
+        ],
+         textoWhatsApp: 'Hola, me gustaría recibir más información sobre la línea de pinturas que ofrecen.'
     },
     {
         img: '/images/Bachas.jpeg',
         titulo: 'Griferia',
-        texto: 'Grifería para cocina y baño de las mejores marcas'
+        texto: 'Grifería para cocina y baño de las mejores marcas',
+        textoWhatsApp: 'Hola, quisiera consultar por los modelos y marcas de grifería disponibles.'
     },
     {
         img: '/images/Revestimientos.webp',
         titulo: 'Revestimientos',
-        texto: 'Revestimientos cerámicos y porcelanatos para todos los ambientes'
+        texto: 'Revestimientos cerámicos y porcelanatos para todos los ambientes',
+        textoWhatsApp: 'Hola, me interesa conocer las opciones de revestimientos cerámicos y porcelanatos.'
     },
     {
         img: '/images/Herramientas.jpeg',
         titulo: 'Herramientas',
-        texto: 'Herramientas y Accesorios'
+        texto: 'Herramientas y Accesorios',
+        textoWhatsApp: 'Hola, ¿podrían brindarme información sobre las herramientas y accesorios que tienen a la venta?'
     },
     {
         img: '/images/PlacasPVC.webp',
         titulo: 'Placas PVC',
-        texto: 'Placas de PVC para revestimientos y construcción en seco'
+        texto: 'Placas de PVC para revestimientos y construcción en seco',
+        textoWhatsApp: 'Hola, quisiera saber más sobre las placas de PVC para revestimientos.'
     },
     {
         img: '/images/Perfiles.jpeg',
         titulo: 'Material de Construcción en Seco',
-        texto: 'Durlock, perfiles y accesorios para construcción en seco'
-    }
+        texto: 'Durlock, perfiles y accesorios para construcción en seco',
+        textoWhatsApp: 'Hola, estoy interesado en materiales para construcción en seco. ¿Podrían darme más información?'
+        }
 ]

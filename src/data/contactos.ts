@@ -2,27 +2,28 @@ import { Contacto } from "@/interface/contacto";
 import { BiPhone } from "react-icons/bi";
 import { CiLocationOn, CiMail } from "react-icons/ci";
 import { GoClock } from "react-icons/go";
+import { mail, telefono } from "./variables";
 
 export const contactos: Contacto[] = [
     {
         tipo: 'Telefono',
         bgIcon: 'bg-yellow',
         icon: BiPhone,
-        textos: ['+543456445977']
+        textos: [telefono]
     },
 
     {
         tipo: 'Email',
         bgIcon: 'bg-orange',
         icon: CiMail,
-        textos: ['info@anclacentro.com', 'ventas@anclacentro.com']
+        textos: [mail]
     },
 
     {
         tipo: 'Direccion',
         bgIcon: 'bg-yellow',
         icon: CiLocationOn,
-        textos: ['AV. Principal 1144', 'Chajari, Entre Rios']
+        textos: ['Av. Belgrano 1340', 'Chajari, Entre Rios']
     },
 
     {

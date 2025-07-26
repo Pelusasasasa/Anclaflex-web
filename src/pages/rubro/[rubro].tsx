@@ -2,6 +2,7 @@ import { Button } from '@/components/Button';
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
 import { rubros } from '@/data/rubros';
+import { urlWSAPGeneral } from '@/data/variables';
 import { Rubro } from '@/interface/rubro';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation'
@@ -50,7 +51,9 @@ export default function RubroScreen(){
                 <p className='text-xl mb-8 leading-relaxed'>{rubro.textoDescriptivo}</p>
 
                 <div className='text-light flex-col md:flex-row flex gap-4 mb-8'>
-                  <Button type='whatsapp' texto='Consultar por WhatsApp'/>
+                  <a href={urlWSAPGeneral} target='_blank'>
+                    <Button type='whatsapp' texto='Consultar por WhatsApp'/>
+                  </a>
                   <Button type='mail' texto='Enviar Mail'/>
                 </div>
               </div>

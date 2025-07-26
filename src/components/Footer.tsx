@@ -1,3 +1,4 @@
+import { mail, telefono, urlMail, urlWSAPGeneral } from '@/data/variables';
 import Image from 'next/image'
 import React from 'react';
 import { CiMail } from 'react-icons/ci';
@@ -33,16 +34,16 @@ export const Footer = () => {
                     <p className='font-bold mb-6'>Informacion</p>
 
                     <address className='flex flex-col gap-2'>
-                        <p  className='font-extralight'>Av. Principal</p>
+                        <p  className='font-extralight'>Av. Belgrano 1340</p>
                         <p  className='font-extralight'>Chajari, Entre Rios</p>
-                        <p  className='font-extralight flex gap-2 items-center cursor-pointer'>
+                        <a href={urlWSAPGeneral} target='_blank' className='font-extralight hover:font-normal flex gap-2 items-center cursor-pointer'>
                             <FaWhatsapp size={15} color='green'/>
-                            +54 3456 445977
-                        </p>
-                        <p  className='font-extralight flex gap-2 items-center cursor-pointer'>
+                            +{telefono}
+                        </a>
+                        <a href={urlMail} target='_blank'  className='font-extralight hover:font-normal flex gap-2 items-center cursor-pointer'>
                             <CiMail size={15} className='text-yellow'/>
-                            info@anclacentro.com
-                        </p>
+                            {mail}
+                        </a>
                     </address>
                 </div>
             </div>

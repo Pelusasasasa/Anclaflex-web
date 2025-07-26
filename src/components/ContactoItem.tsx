@@ -1,7 +1,9 @@
+import { urlMail, urlWSAPGeneral } from '@/data/variables';
 import { Contacto } from '@/interface/contacto'
 import React from 'react'
 import {  IconType } from 'react-icons';
 import { BsWhatsapp } from 'react-icons/bs';
+import { CiMail } from 'react-icons/ci';
 
 export const ContactoItem = ({tipo, bgIcon, icon, textos}: Contacto) => {
   const Icon: IconType = icon;
@@ -19,11 +21,15 @@ export const ContactoItem = ({tipo, bgIcon, icon, textos}: Contacto) => {
                 <div key={index} className='text-center'>{
                   tipo === 'Telefono'
                   ? (
-                    <div className='flex gap-2 items-center cursor-pointer'>
+                    <a href={urlWSAPGeneral} target='_blank' className='flex gap-2 items-center cursor-pointer'>
                       <BsWhatsapp color='green'/>
-                      <p>{texto}</p>
-                    </div>
-                  ) : (<p>{texto}</p>)
+                      <p>+{texto}</p>
+                    </a>
+                  ) : tipo === 'Email' ? (<a href={urlMail} target='_blank' className='flex gap-2 items-center cursor-pointer'>
+                                          <CiMail className='text-yellow' size={20}/>
+                                          <p>{texto}</p>
+                                        </a>) 
+                                      : (<p>{texto}</p>)
                 }</div>
             ))}
         </div>

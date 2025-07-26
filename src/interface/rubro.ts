@@ -5,4 +5,5 @@ export interface Rubro {
     textoDescriptivo?: string;
     caracteristicas?: string[];
     aplicaciones?: string[];
+    textoWhatsApp?: string
 }

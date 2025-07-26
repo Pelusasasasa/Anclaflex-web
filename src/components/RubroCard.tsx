@@ -4,18 +4,21 @@ import { useRouter } from 'next/router';
 import React from 'react'
 import { MdArrowForwardIos } from 'react-icons/md';
 import { Button } from './Button';
+import { urlWSAP } from '@/data/variables';
 
 interface Props extends Rubro {
     whatsApp?: boolean;
     mail?: boolean;
 }
 
-export const RubroCard = ({ titulo, texto, img, whatsApp, mail}: Props) => {
+export const RubroCard = ({ titulo, texto, textoWhatsApp, img, whatsApp, mail}: Props) => {
     const router = useRouter()
 
     const navegar = () => {
         router.push(`/rubro/${titulo.toLowerCase()}`)
     };
+
+    console.log(urlWSAP + textoWhatsApp);
 
     return (
 
@@ -38,7 +41,9 @@ export const RubroCard = ({ titulo, texto, img, whatsApp, mail}: Props) => {
 
             <div className='flex justify-center text-light gap-5 pt-3 pb-5'>
                 { whatsApp  && (
-                    <Button type='whatsapp' texto='WhatsApp'/>
+                    <a href={`${urlWSAP}${textoWhatsApp}`} target='_blank'>
+                        <Button type='whatsapp' texto='WhatsApp'/>
+                    </a>
                 )}
 
                 { mail  && (

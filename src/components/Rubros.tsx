@@ -14,7 +14,7 @@ export const Rubros = () => {
 
             <div className='grid md:grid-cols-2 lg:grid-cols-3 mt-7 gap-7'>
                 { rubros.map(rubro => (
-                    <RubroCard key={rubro.titulo} titulo={rubro.titulo} texto={rubro.texto} img={rubro.img} whatsApp mail/>
+                    <RubroCard key={rubro.titulo} titulo={rubro.titulo} texto={rubro.texto} textoWhatsApp={rubro.textoWhatsApp} img={rubro.img} whatsApp mail />
                 ))}
             </div>
         </div>
