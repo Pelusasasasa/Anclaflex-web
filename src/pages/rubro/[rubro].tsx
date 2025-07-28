@@ -2,7 +2,7 @@ import { Button } from '@/components/Button';
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
 import { rubros } from '@/data/rubros';
-import { urlWSAPGeneral } from '@/data/variables';
+import { urlMail, urlWSAP, urlWSAPGeneral } from '@/data/variables';
 import { Rubro } from '@/interface/rubro';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation'
@@ -13,8 +13,6 @@ export default function RubroScreen(){
   const pathName = usePathname();
   const [rubro, setRubro] = useState<Rubro>()
 
-
-  
   useEffect(() => {
     if(pathName){
       const rubroTraido = rubros.find(elem => elem.titulo.toLowerCase() === decodeURIComponent(pathName).split('/')[2]);
@@ -22,7 +20,6 @@ export default function RubroScreen(){
     }
   }, [pathName]);
   
-
   if(!rubro){
     return (
       <div>
@@ -31,8 +28,7 @@ export default function RubroScreen(){
         <Footer/>
       </div>
     )
-  }
-
+  };
 
   return (
     <section className='bg-light'>
@@ -51,10 +47,12 @@ export default function RubroScreen(){
                 <p className='text-xl mb-8 leading-relaxed'>{rubro.textoDescriptivo}</p>
 
                 <div className='text-light flex-col md:flex-row flex gap-4 mb-8'>
-                  <a href={urlWSAPGeneral} target='_blank'>
+                  <a href={`${urlWSAP}${rubro.textoWhatsApp}`} target='_blank'>
                     <Button type='whatsapp' texto='Consultar por WhatsApp'/>
                   </a>
-                  <Button type='mail' texto='Enviar Mail'/>
+                  <a href={urlMail}>
+                    <Button type='mail' texto='Enviar Mail'/>
+                  </a>
                 </div>
               </div>
           </div>
