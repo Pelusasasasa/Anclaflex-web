@@ -34,7 +34,7 @@ export const SliderPrincipal = () => {
                 <h2 className='text-3xl md:text-5xl font-bold text-yellow'>Bienvenido a Anclacentro</h2>
                 <p className='mt-4 text-lg md:text-3xl text-white'>Pinturas, ceramicas y construccion en seco</p>
                 <div className='flex justify-center mt-5'>
-                  <Button texto='Conoce Nuestros Rubros'/>
+                  <a href="#rubros"><Button texto='Conoce Nuestros Rubros'/></a>
                 </div>
               </div>
             </div>
