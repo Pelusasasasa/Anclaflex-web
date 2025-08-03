@@ -21,19 +21,19 @@ export const rubros: Rubro[] = [
             'Fachadas y medianeras',
             'Proyectos decorativos especiales'
         ],
-         textoWhatsApp: 'Hola, me gustaría recibir más información sobre la línea de pinturas que ofrecen.'
+        textoWhatsApp: 'Hola!! Me gustaría saber más información sobre la línea de pinturas que ofrecen.'
     },
     {
         img: '/images/Bachas.jpeg',
         titulo: 'Griferia',
         texto: 'Grifería para cocina y baño de las mejores marcas',
-        textoWhatsApp: 'Hola, quisiera consultar por los modelos y marcas de grifería disponibles.'
+        textoWhatsApp: 'Hola!! Me gustaría saber más información sobre modelos y líneas de Grifería que trabajan.'
     },
     {
         img: '/images/Revestimientos.webp',
         titulo: 'Revestimientos',
         texto: 'Revestimientos cerámicos y porcelanatos para todos los ambientes',
-        textoWhatsApp: 'Hola, me interesa conocer las opciones de revestimientos cerámicos y porcelanatos.'
+        textoWhatsApp: 'Hola!! Me gustaría saber más información sobre los Revestimientos testurados. Cantidad de metros cuadrados que cubre y colores disponibles.'
     },
     {
         img: '/images/Herramientas.jpeg',
@@ -45,12 +45,12 @@ export const rubros: Rubro[] = [
         img: '/images/PlacasPVC.webp',
         titulo: 'Placas PVC',
         texto: 'Placas de PVC para revestimientos y construcción en seco',
-        textoWhatsApp: 'Hola, quisiera saber más sobre las placas de PVC para revestimientos.'
+        textoWhatsApp: 'Hola!! Me gustaría saber más información sobre las placas PVC. Colocación, medidas y modelos disponibles.'
     },
     {
         img: '/images/Perfiles.jpeg',
         titulo: 'Material de Construcción en Seco',
         texto: 'Durlock, perfiles y accesorios para construcción en seco',
-        textoWhatsApp: 'Hola, estoy interesado en materiales para construcción en seco. ¿Podrían darme más información?'
+        textoWhatsApp: 'Hola!! Estoy interesado en materiales en construcción en seco. ¿Me podrías armar presupuesto?'
         }
 ]

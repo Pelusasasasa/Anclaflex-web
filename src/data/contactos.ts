@@ -30,6 +30,6 @@ export const contactos: Contacto[] = [
         tipo: 'Horarios',
         bgIcon: 'bg-orange',
         icon: GoClock,
-        textos: ['Lun - Vie: 8:00 - 18:00', 'Sab: 8:00 - 12:30']
+        textos: ['Lun-Vie: 8:00 - 12:00 y 16:00 - 20:00', 'Sab: 8:00 - 12:00']
     },
 ]
