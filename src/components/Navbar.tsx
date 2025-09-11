@@ -1,6 +1,8 @@
 import Image from 'next/image'
+import Link from 'next/link';
 import React, { useState } from 'react'
 import { AiOutlineMenu } from "react-icons/ai";
+import { BsPerson } from 'react-icons/bs';
 import { IoCloseOutline } from "react-icons/io5";
 
 const links = ['Inicio', 'Rubros', 'Nosotros', 'Marcas', 'Contacto'];
@@ -30,6 +32,13 @@ return (
                     {!menu && (<AiOutlineMenu size={25} className='text-light hover:cursor-pointer hover:text-yellow' onClick={() => setMenu(true)}/>)}
                     {menu && (<IoCloseOutline size={25} className='text-light hover:cursor-pointer hover:text-yellow' onClick={() => setMenu(false)}/>)}
                 </div>
+
+                <div className='hidden md:block'>
+                    <Link href='/login' className='flex gap-5 items-center bg-[#ed9b22] px-4 py-2 cursor-pointer hover:bg-[#d18a1e] text-white rounded-lg'>
+                        <BsPerson/>
+                        Iniciar Sesion
+                    </Link>
+                </div>
             </div>
             {/* Navegacion Mobile */}
             {menu &&
@@ -39,6 +48,13 @@ return (
                             <a href={`/#${link.toLowerCase()}`} className='hover:text-yellow' key={link} onClick={() => setMenu(false)}>{link}</a>
                         ))}
                     </div>
+
+                    <div className='md:hidden border-t border-gray-300 py-5 flex mt-5'>
+                    <Link href='/login' className='flex gap-5 items-center bg-[#ed9b22] px-4 py-2 cursor-pointer hover:bg-[#d18a1e] text-white rounded-lg'>
+                        <BsPerson/>
+                        Iniciar Sesion
+                    </Link>
+                </div>
                 </nav>)
             }            
         </div>

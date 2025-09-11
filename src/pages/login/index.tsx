@@ -1,5 +1,7 @@
 
+import { anclaApi } from '@/api/anclaApi'
 import { Button } from '@/components/Button'
+import { useAuth } from '@/store/useAuth'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
@@ -9,14 +11,26 @@ import { IoLockClosedOutline } from 'react-icons/io5'
 
 const Login = () => {
 
-  const [usuario, setUsuario] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const {login, loadFormStorage, user} = useAuth();
 
-    console.log({usuario, password})
-  }
+  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const { data } = await anclaApi.post(`usuarios/login`, {email, password});
+      const { usuario, token } = data;
+      
+      if(data.ok){  
+        login(usuario, token);
+        
+      };
+    } catch (error) {
+      console.error(error);
+    }
+    
+  };
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-[#e6e6e6] to-white flex items-center justify-center p-4'>
@@ -36,7 +50,7 @@ const Login = () => {
               <label htmlFor="usuario">Usuario</label>
               <div className='flex items-center gap-2 w-full border-gray-300 border rounded-lg bg-white'>
                 <BsPerson color='black' size={20}/>
-                <input type="text" name="usuario" id="usuario" value={usuario} onChange={e => setUsuario(e.target.value)} placeholder='Ingresa Tu Usuario' className='placeholder:text-gray-600 text-black px-2 py-1 w-full'/>
+                <input type="text" name="usuario" id="usuario" value={email} onChange={e => setEmail(e.target.value)} placeholder='Ingresa Tu Usuario' className='placeholder:text-gray-600 text-black px-2 py-1 w-full'/>
               </div>
             </div>
 
