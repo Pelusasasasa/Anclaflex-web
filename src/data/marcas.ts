@@ -2,24 +2,24 @@ import { Marca } from "@/interface/marca";
 
 export const marcas: Marca[] = [
     {
-        texto: 'Alba',
-        logo: '/images/alba.webp',
+        texto: 'Muresco',
+        logo: '/images/Muresco.JPEG',
         ambos: false,
     },
     {
-        texto: 'Plavicon',
-        logo: '/images/Plavicon.webp',
+        texto: 'AnclaFlex',
+        logo: '/images/Anclaflex.jpg',
         ambos: false,
     },
     {
-        texto: 'Colorin',
-        logo: '/images/Colorin.webp',
-        ambos: true,
-    },
-    {
-        texto: 'Tersuave',
-        logo: '/images/Tersuave.webp',
+        texto: 'Folium',
+        logo: '/images/Folium.webp',
         ambos: false,
     },
+    // {
+    //     texto: 'Tersuave',
+    //     logo: '/images/Tersuave.webp',
+    //     ambos: false,
+    // },
 
 ]
