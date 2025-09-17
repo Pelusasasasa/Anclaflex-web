@@ -22,18 +22,23 @@ const Register = () => {
           if(user.length <= 0) return setMenssage('Ingresa un Nombre de Usuario');
         if(password.length < 6) return setMenssage('La contaseña debe tener mas de 6 caracteres')
 
-        const data = await supabase.auth.signUp({
+        const {error, data} = await supabase.auth.signUp({
           email: email,
           password: password,
           options: {
             data: {
               name: user,
               rol: 'cliente'
-            }
+            },
+            emailRedirectTo: `${window.location.origin}/login`
           }
         });
 
-        console.log(data);
+        if(error){
+          setMenssage(error.message)
+        }else{
+          setMenssage('✅ Revise su email y confirma tu cuenta para poder iniicar sesion')
+        };
     };
 
   return (

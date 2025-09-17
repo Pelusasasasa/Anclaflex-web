@@ -1,14 +1,18 @@
+import { useUser } from '@/hooks';
+import { User } from '@/interface';
 import Image from 'next/image'
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsPerson } from 'react-icons/bs';
 import { IoCloseOutline } from "react-icons/io5";
+import { LuLogOut } from 'react-icons/lu';
 
 const links = ['Inicio', 'Rubros', 'Nosotros', 'Marcas', 'Contacto'];
 
 
 export const Navbar = () => {
+    const { user } = useUser();
 
     const [menu, setMenu] = useState<boolean>(false);
 
@@ -33,31 +37,64 @@ return (
                     {menu && (<IoCloseOutline size={25} className='text-light hover:cursor-pointer hover:text-yellow' onClick={() => setMenu(false)}/>)}
                 </div>
 
-                <div className='hidden md:block'>
-                    <Link href='/login' className='flex gap-5 items-center bg-[#ed9b22] px-4 py-2 cursor-pointer hover:bg-[#d18a1e] text-white rounded-lg'>
-                        <BsPerson/>
-                        Iniciar Sesion
-                    </Link>
-                </div>
+                <Boton user={user}/>
+
             </div>
             {/* Navegacion Mobile */}
-            {menu &&
-                (<nav className='md:hidden mt-4 pb-4 border-t border-light pt-4 transition-all duration-300 ease-in-out'>
-                    <div className='flex flex-col space-y-4 text-light'>
-                        { links.map((link) => (
-                            <a href={`/#${link.toLowerCase()}`} className='hover:text-yellow' key={link} onClick={() => setMenu(false)}>{link}</a>
-                        ))}
-                    </div>
-
-                    <div className='md:hidden border-t border-gray-300 py-5 flex mt-5'>
-                    <Link href='/login' className='flex gap-5 items-center bg-[#ed9b22] px-4 py-2 cursor-pointer hover:bg-[#d18a1e] text-white rounded-lg'>
-                        <BsPerson/>
-                        Iniciar Sesion
-                    </Link>
-                </div>
-                </nav>)
-            }            
+            {menu && <NavegacionMobile setMenu={setMenu}/>}            
         </div>
     </div>
 )
 }
+
+
+interface PropsMobile{
+    setMenu: (arg0: boolean) => void
+};
+
+const NavegacionMobile = ({ setMenu}: PropsMobile) => {
+        return (
+        <nav className='md:hidden mt-4 pb-4 border-t border-light pt-4 transition-all duration-300 ease-in-out'>
+            <div className='flex flex-col space-y-4 text-light'>
+                { links.map((link) => (
+                    <a href={`/#${link.toLowerCase()}`} className='hover:text-yellow' key={link} onClick={() => setMenu(false)}>{link}</a>
+                    ))}
+            </div>
+
+            <div className='md:hidden border-t border-gray-300 py-5 flex mt-5'>
+                <Link href='/login' className='flex gap-5 items-center bg-[#ed9b22] px-4 py-2 cursor-pointer hover:bg-[#d18a1e] text-white rounded-lg'>
+                    <BsPerson/>
+                    Iniciar Sesion
+                </Link>
+            </div>
+        </nav>
+    )
+};
+
+interface PropsBoton {
+    user?: User | null
+}
+const Boton = ({user}: PropsBoton) => {
+    const { startLogOut } = useUser();
+    const onLogOut = () => {
+        startLogOut();
+    }
+    if(user){
+        return (
+        <div className='hidden md:block'>
+            <div onClick={onLogOut} className='flex gap-5 items-center  px-4 py-2 cursor-pointer hover:text-[#d18a1e] text-white rounded-lg'>
+                <LuLogOut/>
+                Log Out
+            </div>
+        </div>  
+        )
+    }
+
+     return (
+        <div className='hidden md:block'>
+            <Link href='/login' className='flex gap-5 items-center bg-[#ed9b22] px-4 py-2 cursor-pointer hover:bg-[#d18a1e] text-white rounded-lg'>
+                <BsPerson/>
+                Iniciar Sesion
+            </Link>
+        </div>
+)}

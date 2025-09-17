@@ -1,27 +1,38 @@
 
 import { Button } from '@/components/Button'
+import { verMensajesLogin } from '@/herlpers/mensageLogin'
 import { supabase } from '@/supabase/client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { BsPerson } from 'react-icons/bs'
 import { IoIosArrowRoundBack } from 'react-icons/io'
 import { IoLockClosedOutline } from 'react-icons/io5'
 
 const Login = () => {
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const router = useRouter();
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
-      const result = await supabase.auth.signInWithPassword({email, password});
-      console.log(result);
+      const {data, error} = await supabase.auth.signInWithPassword({email, password});
+      if(error){
+        return setMessage(verMensajesLogin(error.code || ''))
+      };
+
+      router.push('/');
+
     } catch (error) {
       console.log(error);
-      alert('Error Al ingresar usurio')
+      setMessage('Error Al ingresar usurio')
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -29,6 +40,7 @@ const Login = () => {
     <div className='min-h-screen bg-gradient-to-br from-[#343333] to-[#a5a4a4] flex items-center justify-center p-4'>
       <div className='rounded-lg w-full text-gray-300 bg-gray-500 max-w-md shadow-2xl border-0'>
         <div className='p-8'>
+          
           <div className='text-center mb-8 '>
             
             <Link href='/'>
@@ -37,6 +49,8 @@ const Login = () => {
             
             <h1 className='font-semibold text-2xl my-2 text-white'>Iniciar Sesion</h1>
           </div>
+          
+          {message && <div className='bg-white rounded-lg '><p className='text-lg m-0 text-center mt-2 text-red-600'>{message}</p></div>}
 
           <form onSubmit={handleSubmit}>
             <div className='mb-2'>
@@ -57,7 +71,7 @@ const Login = () => {
 
 
             <div className='mt-4 w-full'>
-              <Button tipo='submit'  texto='Iniciar Sesion' className='w-full text-white justify-center text-xl font-semibold'/>
+              <Button tipo='submit' disabled={loading}  texto={loading ? 'Iniciando...' : 'Iniciar Sesion'} className='w-full text-white justify-center text-xl font-semibold'/>
               <div className='flex gap-2 items-center justify-center mt-1'>
                 <p>¿No tienes cuenta?</p>
                 <Link href='/register' className='text-[#ed9b22]'>Registrate Aqui</Link>
@@ -72,6 +86,8 @@ const Login = () => {
               <p>Volver al sitio Web</p>
             </Link>
           </div>
+
+        
         </div>
       </div>
     </div>
