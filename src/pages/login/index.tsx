@@ -1,7 +1,6 @@
 
-import { anclaApi } from '@/api/anclaApi'
 import { Button } from '@/components/Button'
-import { useAuth } from '@/store/useAuth'
+import { supabase } from '@/supabase/client'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
@@ -14,26 +13,20 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const {login, loadFormStorage, user} = useAuth();
-
   const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     try {
-      const { data } = await anclaApi.post(`usuarios/login`, {email, password});
-      const { usuario, token } = data;
-      
-      if(data.ok){  
-        login(usuario, token);
-        
-      };
+      const result = await supabase.auth.signInWithPassword({email, password});
+      console.log(result);
     } catch (error) {
-      console.error(error);
+      console.log(error);
+      alert('Error Al ingresar usurio')
     }
-    
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-[#e6e6e6] to-white flex items-center justify-center p-4'>
+    <div className='min-h-screen bg-gradient-to-br from-[#343333] to-[#a5a4a4] flex items-center justify-center p-4'>
       <div className='rounded-lg w-full text-gray-300 bg-gray-500 max-w-md shadow-2xl border-0'>
         <div className='p-8'>
           <div className='text-center mb-8 '>
@@ -65,6 +58,10 @@ const Login = () => {
 
             <div className='mt-4 w-full'>
               <Button tipo='submit'  texto='Iniciar Sesion' className='w-full text-white justify-center text-xl font-semibold'/>
+              <div className='flex gap-2 items-center justify-center mt-1'>
+                <p>¿No tienes cuenta?</p>
+                <Link href='/register' className='text-[#ed9b22]'>Registrate Aqui</Link>
+              </div>
             </div>
 
           </form>
