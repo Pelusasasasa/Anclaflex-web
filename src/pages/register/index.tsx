@@ -14,15 +14,21 @@ const Register = () => {
     const [password, setPassword] = useState<string>('');
     const [user, setUser] = useState<string>('');
     const [menssage, setMenssage] = useState<string>('');
+    const [enviado, setEnviado] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        
 
-        if(email.length <= 0) return setMenssage('Ingresa un Email')
-          if(user.length <= 0) return setMenssage('Ingresa un Nombre de Usuario');
-        if(password.length < 6) return setMenssage('La contaseña debe tener mas de 6 caracteres')
+        if(email.length <= 0) return setEnviado(true);
+        if(user.length <= 0) return setEnviado(true);
+        if(password.length < 6) return setEnviado(true);
 
-        const {error, data} = await supabase.auth.signUp({
+        setLoading(true);
+
+        try {
+          const {error, data} = await supabase.auth.signUp({
           email: email,
           password: password,
           options: {
@@ -31,14 +37,22 @@ const Register = () => {
               rol: 'cliente'
             },
             emailRedirectTo: `${window.location.origin}/login`
-          }
-        });
+            }
+          });
 
-        if(error){
-          setMenssage(error.message)
-        }else{
-          setMenssage('✅ Revise su email y confirma tu cuenta para poder iniicar sesion')
-        };
+          console.log(data)
+          
+          if(error){
+            setMenssage(error.message)
+          }else{
+            setMenssage('✅ Revise su email y confirma tu cuenta para poder iniicar sesion')
+          };
+        } catch (error) {
+          console.log(error)
+        }finally{
+          setLoading(false);
+        }
+
     };
 
   return (
@@ -55,13 +69,14 @@ const Register = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            {menssage && <p className='text-center text-[#8e2629] text-xl font-semibold'>{menssage}</p>}
+            {menssage && <p className='text-center text-[#42cb3a] text-xl font-semibold'>{menssage}</p>}
             <div className='mb-2'>
               <label htmlFor="email">Email</label>
               <div className='flex items-center gap-2 w-full border-gray-300 border rounded-lg bg-white'>
                 <CgMail color='black' size={20}/>
                 <input type="text" name="email" id="email" value={email} onChange={e => setEmail(e.target.value)} placeholder='Ingresa Tu Email' className='placeholder:text-gray-600 text-black px-2 py-1 w-full'/>
               </div>
+              {enviado && email.length === 0 && <span className='text-center text-[#fca5a5] rounded-sm px-2s'>El Email es obligatorio</span>}
             </div>
 
             <div className='mb-2'>
@@ -70,6 +85,7 @@ const Register = () => {
                 <BsPerson color='black' size={20}/>
                 <input type="text" name="user" id="user" value={user} onChange={e => setUser(e.target.value)} placeholder='Ingresa Tu Usuario' className='placeholder:text-gray-600 text-black px-2 py-1 w-full'/>
               </div>
+              {enviado && user.length === 0 && <span className='text-center text-[#fca5a5] rounded-sm px-2s'>El usuario es obligatorio</span>}
             </div>
 
             <div>
@@ -78,11 +94,12 @@ const Register = () => {
                 <IoLockClosedOutline  color='black' size={20}/>
                 <input type="password" name="password" id="password" value={password} onChange={e => setPassword(e.target.value)} placeholder='Ingresa Tu Contraseña' className='placeholder:text-gray-600 px-2 text-black py-1 w-full'/>
               </div>
+              {enviado && password.length === 0 && <span className='text-center text-[#fca5a5] rounded-sm px-2s'>La contraseña debe contener como minimo 6 caracteres</span>}
             </div>
 
 
             <div className='mt-4 w-full'>
-              <Button tipo='submit'  texto='Registrar Usuario' className='w-full text-white justify-center text-xl font-semibold'/>
+              <Button tipo='submit' disabled={loading}  texto={loading ? 'Registrando...' : 'Registrar Usuario'} className='w-full text-white justify-center text-xl font-semibold'/>
               <div className='flex gap-2 items-center mt-1 justify-center'>
                 <p>¿Ya tienes cuenta?</p>
                 <Link href='/login' className='text-[#ed9b22]'>Iniciar Sesion</Link>

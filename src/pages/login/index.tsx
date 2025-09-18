@@ -14,16 +14,21 @@ const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [enviado, setEnviado] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if(email.length === 0) return setEnviado(true);
+    if(password.length === 0) return setEnviado(true);
+
     setLoading(true);
     try {
       const {data, error} = await supabase.auth.signInWithPassword({email, password});
       if(error){
-        return setMessage(verMensajesLogin(error.code || ''))
+         return setMessage(verMensajesLogin(error.code || ''))
       };
 
       router.push('/');
@@ -49,16 +54,17 @@ const Login = () => {
             
             <h1 className='font-semibold text-2xl my-2 text-white'>Iniciar Sesion</h1>
           </div>
-          
-          {message && <div className='bg-white rounded-lg '><p className='text-lg m-0 text-center mt-2 text-red-600'>{message}</p></div>}
+
+          {message && <p className='text-center text-[#fca5a5]'>{message}</p>}
 
           <form onSubmit={handleSubmit}>
             <div className='mb-2'>
-              <label htmlFor="usuario">Usuario</label>
+              <label htmlFor="Email">Email</label>
               <div className='flex items-center gap-2 w-full border-gray-300 border rounded-lg bg-white'>
                 <BsPerson color='black' size={20}/>
-                <input type="text" name="usuario" id="usuario" value={email} onChange={e => setEmail(e.target.value)} placeholder='Ingresa Tu Usuario' className='placeholder:text-gray-600 text-black px-2 py-1 w-full'/>
+                <input type="text" name="Email" id="Email" value={email} onChange={e => setEmail(e.target.value)} placeholder='Ingresa Tu Email' className='placeholder:text-gray-600 text-black px-2 py-1 w-full'/>
               </div>
+              {email.length === 0 && enviado && <span className='text-center text-[#fca5a5] rounded-sm px-2'>Ingresar Email</span>}
             </div>
 
             <div>
@@ -67,6 +73,7 @@ const Login = () => {
                 <IoLockClosedOutline  color='black' size={20}/>
                 <input type="password" name="password" id="password" value={password} onChange={e => setPassword(e.target.value)} placeholder='Ingresa Tu Contraseña' className='placeholder:text-gray-600 px-2 text-black py-1 w-full'/>
               </div>
+              {password.length === 0 && enviado && <span className='text-center text-[#fca5a5] rounded-sm px-2'>Ingresar Contraseña</span>}
             </div>
 
 

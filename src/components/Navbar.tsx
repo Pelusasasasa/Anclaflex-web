@@ -84,7 +84,7 @@ const Boton = ({user}: PropsBoton) => {
         <div className='hidden md:block'>
             <div onClick={onLogOut} className='flex gap-5 items-center  px-4 py-2 cursor-pointer hover:text-[#d18a1e] text-white rounded-lg'>
                 <LuLogOut/>
-                Log Out
+                Cerrar Sesion
             </div>
         </div>  
         )
