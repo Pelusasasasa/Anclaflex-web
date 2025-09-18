@@ -19,7 +19,10 @@ export default function Home() {
 
   useEffect(() => {
     supabase.auth.onAuthStateChange((e, session) => {
-      if(!session) return router.push('/') ;
+      if(!session) {
+        router.push('/') ;
+        return;
+      }
 
       const {user} = session;
 
