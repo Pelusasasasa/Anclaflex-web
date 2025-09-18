@@ -1,7 +1,9 @@
 import { Button } from '@/components/Button'
+import { verMensajesLogin } from '@/herlpers/mensageLogin'
 import { supabase } from '@/supabase/client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { BsPerson } from 'react-icons/bs'
 import { CgMail } from 'react-icons/cg'
@@ -9,13 +11,14 @@ import { IoIosArrowRoundBack } from 'react-icons/io'
 import { IoLockClosedOutline } from 'react-icons/io5'
 
 const Register = () => {
-
+  const router = useRouter();
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [user, setUser] = useState<string>('');
     const [menssage, setMenssage] = useState<string>('');
     const [enviado, setEnviado] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<boolean>(false)
 
     const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -36,18 +39,17 @@ const Register = () => {
               name: user,
               rol: 'cliente'
             },
-            emailRedirectTo: `${window.location.origin}/login`
             }
           });
-
-          console.log(data)
           
           if(error){
-            setMenssage(error.message)
+            setError(true);
+            setMenssage(verMensajesLogin(error.code || ''))
           }else{
-            setMenssage('✅ Revise su email y confirma tu cuenta para poder iniicar sesion')
+            router.push('/');
           };
         } catch (error) {
+          setError(true);
           console.log(error)
         }finally{
           setLoading(false);
@@ -69,7 +71,7 @@ const Register = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            {menssage && <p className='text-center text-[#42cb3a] text-xl font-semibold'>{menssage}</p>}
+            {menssage && <p className={`text-center ${error ? 'text-[#fca5a5]'  : 'text-[#42cb3a]'} text-xl font-semibold`}>{menssage}</p>}
             <div className='mb-2'>
               <label htmlFor="email">Email</label>
               <div className='flex items-center gap-2 w-full border-gray-300 border rounded-lg bg-white'>

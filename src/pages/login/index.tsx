@@ -28,7 +28,7 @@ const Login = () => {
     try {
       const {data, error} = await supabase.auth.signInWithPassword({email, password});
       if(error){
-         return setMessage(verMensajesLogin(error.code || ''))
+        return setMessage(verMensajesLogin(error.code || ''))
       };
 
       router.push('/');

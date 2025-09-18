@@ -4,9 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { AiOutlineMenu } from "react-icons/ai";
-import { BsPerson } from 'react-icons/bs';
+import { BsPerson, BsPersonAdd } from 'react-icons/bs';
 import { IoCloseOutline } from "react-icons/io5";
 import { LuLogOut } from 'react-icons/lu';
+import { Button } from './Button';
 
 const links = ['Inicio', 'Rubros', 'Nosotros', 'Marcas', 'Contacto'];
 
@@ -74,17 +75,28 @@ const NavegacionMobile = ({ setMenu}: PropsMobile) => {
 interface PropsBoton {
     user?: User | null
 }
+
 const Boton = ({user}: PropsBoton) => {
     const { startLogOut } = useUser();
     const onLogOut = () => {
         startLogOut();
     }
+
     if(user){
         return (
         <div className='hidden md:block'>
-            <div onClick={onLogOut} className='flex gap-5 items-center  px-4 py-2 cursor-pointer hover:text-[#d18a1e] text-white rounded-lg'>
-                <LuLogOut/>
-                Cerrar Sesion
+            <div className='flex gap-2'>
+                <Link href='/admin' className={user.rol !== 'cliente' ? 'block' : 'hidden'}>
+                    <Button texto='Dashboard' />
+                </Link>
+
+                <div className='flex gap-2 items-center'>
+                    <BsPerson/>
+                    <p>{user.name}</p>
+                </div>
+                <div onClick={onLogOut} className='flex gap-5 items-center  px-4 py-2 cursor-pointer hover:text-[#d18a1e] text-white rounded-lg'>
+                    <LuLogOut/>
+                </div>
             </div>
         </div>  
         )
@@ -97,4 +109,4 @@ const Boton = ({user}: PropsBoton) => {
                 Iniciar Sesion
             </Link>
         </div>
-)}
+)};
