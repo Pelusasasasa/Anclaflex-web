@@ -2,7 +2,7 @@ import { Rubro } from "@/interface/rubro";
 
 export const rubros: Rubro[] = [
     {
-        img: '/images/Rubro1.jpeg',
+        img: '/images/Rubro1.jpg',
         titulo: 'Pinturas',
         texto: 'Pinturas para interiores y exteriores de las mejores marcas',
         textoDescriptivo: 'Ofrecemos una completa línea de pinturas para interiores y exteriores, con productos de primera calidad que garantizan durabilidad, cobertura y acabados perfectos para cualquier tipo de proyecto',
@@ -62,7 +62,7 @@ export const rubros: Rubro[] = [
         ]
     },
     {
-        img: '/images/pisoscementicios.webp',
+        img: '/images/pisoscementicios.jpg',
         titulo: 'Pisos cementicios',
         texto: 'Pisos cementicios modernos y resistentes, ideales para interiores y exteriores.',
         textoWhatsApp: 'Hola!! Me gustaría saber más información sobre los Micropisos cementicios. Cantidad de metros cuadrados que cubren los kits, molduras y colores disponibles.',
