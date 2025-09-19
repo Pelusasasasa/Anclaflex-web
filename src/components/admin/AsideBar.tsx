@@ -1,21 +1,25 @@
+
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import React, { MouseEventHandler } from 'react'
 import { BsBoxSeam } from 'react-icons/bs'
 import { GoTag } from 'react-icons/go'
 import { IoMdStats } from 'react-icons/io'
 
-const AsideBar = () => {
+interface Props {
+    abierto: boolean;
+}
+
+const AsideBar = ({ abierto }: Props) => {
     const router = useRouter();
     const rutaActual = router.asPath.slice(1);
-    console.log(rutaActual);
+
 
     const handleRouter = (e: React.MouseEvent<HTMLElement>) => {
         router.push(`/${e.currentTarget.id}`)
     };
     
   return (
-    <aside className='h-screen bg-gray-500 p-3'>
+    <aside className={`h-screen transition-all duration-300 bg-gray-500 shadow-lg  overflow-hidden ${abierto ? 'w-64 p-3' : 'w-0 '} `}>
         <div className='border-b border-gray-300'>
             <Image src="/images/Logo.png" alt="logo Blanco y Naranja" width={200} height={200} priority className='mx-auto'/>
             <h3 className='text-white font-semibold'>Panel Admin</h3>

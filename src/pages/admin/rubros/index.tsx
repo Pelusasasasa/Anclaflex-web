@@ -1,15 +1,13 @@
 import AsideBar from '@/components/admin/AsideBar'
 import { HeaderAdmin } from '@/components/admin/HeaderAdmin'
 import React from 'react'
+import { AdminLayout } from '../AdminLayout'
 
 const RubrosAdmin = () => {
   return (
-    <div className='bg-white h-screen flex'>
-        <AsideBar/>
-        <main className='flex-1'>
-            <HeaderAdmin/>
-        </main>
-    </div>
+    <AdminLayout>
+      <h1>Hola Mundo</h1>
+    </AdminLayout>
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { CiMail } from 'react-icons/ci';
 import { FaWhatsapp } from 'react-icons/fa';
+import { twMerge } from 'tailwind-merge';
 
 interface Props {
     texto?: string;
@@ -32,7 +33,7 @@ export const Button = ({texto, className, type, tipo, disabled = false}: Props) 
 
 
   return (
-        <button disabled={disabled} type={tipo ?? 'button'} className={`bg-yellow flex items-center gap-3 py-1 px-3 rounded-sm hover:cursor-pointer hover:bg-orange ${className}`}>
+        <button disabled={disabled} type={tipo ?? 'button'} className={twMerge(` bg-yellow flex items-center gap-3 py-1 px-3 rounded-sm hover:cursor-pointer hover:bg-orange ${className}`)}>
             <p>{texto}</p>
         </button>
       )

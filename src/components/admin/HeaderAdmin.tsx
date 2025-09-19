@@ -5,14 +5,18 @@ import { LuLogOut, LuPanelLeft } from "react-icons/lu";
 import { useUser } from '@/hooks';
 import { User } from '@/interface';
 
+interface Props {
+    setAbierto: (arg: boolean) => void;
+    abierto: boolean
+}
 
-export const HeaderAdmin = () => {
+export const HeaderAdmin = ({abierto, setAbierto}: Props) => {
     const { user } = useUser();
   return (
     <div>
-        <div className='flex py-2 gap-2'>
-            <button className='cursor-pointer text-gray-700'>
-                <LuPanelLeft/> 
+        <div className='flex p-2 gap-2'>
+            <button className='cursor-pointer text-gray-700' onClick={() => setAbierto(!abierto)}>
+                <LuPanelLeft /> 
             </button>
             <div className='border-r border-gray-400'></div>
             <div className='flex justify-between flex-1 items-center'>

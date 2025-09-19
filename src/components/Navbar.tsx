@@ -42,7 +42,7 @@ return (
 
             </div>
             {/* Navegacion Mobile */}
-            {menu && <NavegacionMobile setMenu={setMenu}/>}            
+            {menu && <NavegacionMobile setMenu={setMenu} user={user}/>}            
         </div>
     </div>
 )
@@ -50,10 +50,11 @@ return (
 
 
 interface PropsMobile{
-    setMenu: (arg0: boolean) => void
+    setMenu: (arg0: boolean) => void;
+    user?: User | null; 
 };
 
-const NavegacionMobile = ({ setMenu}: PropsMobile) => {
+const NavegacionMobile = ({ setMenu, user}: PropsMobile) => {
         return (
         <nav className='md:hidden mt-4 pb-4 border-t border-light pt-4 transition-all duration-300 ease-in-out'>
             <div className='flex flex-col space-y-4 text-light'>
@@ -62,11 +63,10 @@ const NavegacionMobile = ({ setMenu}: PropsMobile) => {
                     ))}
             </div>
 
+            
+
             <div className='md:hidden border-t border-gray-300 py-5 flex mt-5'>
-                <Link href='/login' className='flex gap-5 items-center bg-[#ed9b22] px-4 py-2 cursor-pointer hover:bg-[#d18a1e] text-white rounded-lg'>
-                    <BsPerson/>
-                    Iniciar Sesion
-                </Link>
+                <BotonMobile user={user}/>
             </div>
         </nav>
     )
@@ -104,6 +104,41 @@ const Boton = ({user}: PropsBoton) => {
 
      return (
         <div className='hidden md:block'>
+            <Link href='/login' className='flex gap-5 items-center bg-[#ed9b22] px-4 py-2 cursor-pointer hover:bg-[#d18a1e] text-white rounded-lg'>
+                <BsPerson/>
+                Iniciar Sesion
+            </Link>
+        </div>
+)};
+
+const BotonMobile= ({user}: PropsBoton) => {
+    const { startLogOut } = useUser();
+    const onLogOut = () => {
+        startLogOut();
+    }
+
+    if(user){
+        return (
+        <div className='md:hidden'>
+            <div className='flex gap-2'>
+                <Link href='/admin' className={user.rol !== 'cliente' ? 'block' : 'hidden'}>
+                    <Button texto='Dashboard' />
+                </Link>
+
+                <div className='flex gap-2 items-center'>
+                    <BsPerson/>
+                    <p>{user.name}</p>
+                </div>
+                <div onClick={onLogOut} className='flex gap-5 items-center  px-4 py-2 cursor-pointer hover:text-[#d18a1e] text-white rounded-lg'>
+                    <LuLogOut/>
+                </div>
+            </div>
+        </div>  
+        )
+    }
+
+     return (
+        <div className='md:hidden'>
             <Link href='/login' className='flex gap-5 items-center bg-[#ed9b22] px-4 py-2 cursor-pointer hover:bg-[#d18a1e] text-white rounded-lg'>
                 <BsPerson/>
                 Iniciar Sesion
