@@ -1,7 +1,7 @@
-import AsideBar from '@/components/admin/AsideBar'
-import { HeaderAdmin } from '@/components/admin/HeaderAdmin'
+
 import React from 'react'
-import { AdminLayout } from '../AdminLayout'
+import AdminLayout from '../AdminLayout'
+
 
 const MarcasAdmin = () => {
   return (

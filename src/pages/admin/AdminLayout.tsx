@@ -6,7 +6,7 @@ interface Props {
   children: ReactNode;
 }
 
-export const AdminLayout = ({ children }: Props) => {
+const AdminLayout = ({ children }: Props) => {
   const [abierto, setAbierto] = useState<boolean>(true);
 
   return (
@@ -19,3 +19,5 @@ export const AdminLayout = ({ children }: Props) => {
     </div>
   )
 }
+
+export default AdminLayout

@@ -2,7 +2,7 @@ import React from 'react'
 import { CardDashboard } from '@/components/admin/CardDashboard'
 import { BsBoxSeam } from 'react-icons/bs'
 import { GoTag } from 'react-icons/go'
-import { AdminLayout } from './AdminLayout'
+import AdminLayout from './AdminLayout'
 
 const Index = () => {
   return (
