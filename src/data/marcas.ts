@@ -2,17 +2,17 @@ import { Marca } from "@/interface/marca";
 
 export const marcas: Marca[] = [
     {
-        texto: 'Muresco',
+        nombre: 'Muresco',
         logo: '/images/Muresco.JPEG',
         ambos: false,
     },
     {
-        texto: 'AnclaFlex',
+        nombre: 'AnclaFlex',
         logo: '/images/Anclaflex.jpg',
         ambos: false,
     },
     {
-        texto: 'Folium',
+        nombre: 'Folium',
         logo: '/images/Folium.webp',
         ambos: false,
     },

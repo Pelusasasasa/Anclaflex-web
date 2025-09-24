@@ -1,5 +1,6 @@
 export interface Marca {
-    texto?: string;
+    id?: number;
+    nombre?: string;
     logo?: string;
     ambos?: boolean;
 }
