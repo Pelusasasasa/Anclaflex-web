@@ -31,6 +31,8 @@ const Login = () => {
         return setMessage(verMensajesLogin(error.code || ''))
       };
 
+      console.log(data);
+
       router.push('/');
 
     } catch (error) {

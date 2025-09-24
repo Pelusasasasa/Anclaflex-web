@@ -17,7 +17,7 @@ export const MarcaCard = ({id, nombre, logo, ambos}: Marca) => {
       text: `Seguro quiere eliminar la marca ${nombre}`
     });
 
-    if(isConfirmed){
+    if(isConfirmed && id){
       startBorrarMarca(id)
     };
   };
@@ -29,7 +29,7 @@ export const MarcaCard = ({id, nombre, logo, ambos}: Marca) => {
   return (
     <tr>
       <td className='p-4'>
-        <img src={logo} alt={nombre} />
+        {/* <img src={logo} alt={nombre} /> */}
       </td>
       <td className='p-4'>{nombre}</td>
       <td className='p-4 text-center'>{tdAmbos}</td>

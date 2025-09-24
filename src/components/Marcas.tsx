@@ -13,7 +13,7 @@ export const Marcas = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-dark gap-5'>
                 { marcas.map(marca => (
-                    <MarcaItem key={marca.texto} logo={marca.logo} texto={marca.texto} ambos={marca.ambos} />
+                    <MarcaItem key={marca.nombre} logo={marca.logo} nombre={marca.nombre} ambos={marca.ambos} />
                 ))}
             </div>
         </div>

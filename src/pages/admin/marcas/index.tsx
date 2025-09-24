@@ -1,5 +1,5 @@
 import React from 'react'
-import { AdminLayout } from '../AdminLayout'
+import AdminLayout  from '../AdminLayout'
 import { Button } from '@/components/Button'
 import { IoAddOutline } from 'react-icons/io5'
 import ListMarca from '@/components/admin/ListMarca'

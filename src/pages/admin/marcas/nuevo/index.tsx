@@ -1,5 +1,5 @@
 import React from 'react'
-import { AdminLayout } from '../../AdminLayout'
+import AdminLayout  from '../../AdminLayout'
 import { Button } from '@/components/Button'
 import { IoIosArrowRoundBack } from 'react-icons/io'
 import { useRouter } from 'next/router'

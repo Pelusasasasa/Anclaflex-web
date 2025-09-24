@@ -2,7 +2,7 @@ import { Button } from '@/components/Button';
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
 import { rubros } from '@/data/rubros';
-import { urlMail, urlWSAP, urlWSAPGeneral } from '@/data/variables';
+import { urlMail, urlWSAP } from '@/data/variables';
 import { Rubro } from '@/interface/rubro';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation'

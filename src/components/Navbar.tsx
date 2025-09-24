@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { AiOutlineMenu } from "react-icons/ai";
-import { BsPerson, BsPersonAdd } from 'react-icons/bs';
+import { BsPerson } from 'react-icons/bs';
 import { IoCloseOutline } from "react-icons/io5";
 import { LuLogOut } from 'react-icons/lu';
 import { Button } from './Button';
