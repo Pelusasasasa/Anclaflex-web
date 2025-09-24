@@ -1,6 +1,6 @@
 
 import { Button } from '@/components/Button'
-import { verMensajesLogin } from '@/herlpers/mensageLogin'
+import { verMensajesLogin } from '@/helpers/mensageLogin'
 import { supabase } from '@/supabase/client'
 import Image from 'next/image'
 import Link from 'next/link'

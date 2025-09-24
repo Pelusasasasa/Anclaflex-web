@@ -12,7 +12,7 @@ const ListMarca = () => {
     }, [])
 
   return (
-    <div className='rounded-lg bg-white shadow-lg border-0'>
+    <div className='rounded-lg bg-white shadow-lg border-0 mx-2'>
         <div className='p-6'>
             <div className='overflow-y-auto'>
                 <table className='w-full border-collapse text-black'>
