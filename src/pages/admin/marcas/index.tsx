@@ -7,12 +7,14 @@ import { useRouter } from 'next/router'
 
 const MarcasAdmin = () => {
   const router = useRouter();
+  
   const agregarMarca = () => {
     router.push('/admin/marcas/nuevo')
-  }
+  };
+
 
   return (
-   <AdminLayout>
+  <AdminLayout>
     <main className='bg-gray-300 h-[calc(100%-3rem)]'>
 
       <div className='px-5 flex justify-between py-2 items-center'>

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { BsBoxSeam } from 'react-icons/bs'
 import { GoTag } from 'react-icons/go'
 import { IoMdStats } from 'react-icons/io'
+import { IoHome } from 'react-icons/io5'
 
 interface Props {
     abierto: boolean;
@@ -21,7 +22,7 @@ const AsideBar = ({ abierto }: Props) => {
   return (
     <aside className={`h-screen transition-all duration-300 bg-gray-500 shadow-lg  overflow-hidden ${abierto ? 'w-64 p-3' : 'w-0 '} `}>
         <div className='border-b border-gray-300'>
-            <Image src="/images/Logo.png" alt="logo Blanco y Naranja" width={200} height={200} priority className='mx-auto'/>
+            <Image src="/images/Logo.png" alt="logo Blanco y Naranja" width={200} height={200} priority className='mx-auto w-auto h-auto'/>
             <h3 className='text-white font-semibold'>Panel Admin</h3>
         </div>
 
@@ -43,6 +44,16 @@ const AsideBar = ({ abierto }: Props) => {
                     </li>
                 </ul>
 
+            </div>
+
+            <div className='mt-5'>
+                <p>Otros</p>
+                <ul className='flex flex-col gap-2'>
+                    <li id='/' onClick={handleRouter} className={`flex gap-2 items-center hover:cursor-pointer hover:bg-gray-400 rounded-sm pl-1`}>
+                        <IoHome/>
+                        <span>Ver sitio Web</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </aside>

@@ -1,5 +1,7 @@
 import { useMarca } from '@/hooks'
 import { Marca } from '@/interface'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
 import { LiaEdit } from 'react-icons/lia'
 import { RiDeleteBin5Line } from 'react-icons/ri'
@@ -7,7 +9,12 @@ import Swal from 'sweetalert2'
 
 
 export const MarcaCard = ({id, nombre, logo, ambos}: Marca) => {
+  const router = useRouter();
   const { startBorrarMarca } = useMarca();
+
+  const handlePatch = () => {
+    router.push(`/admin/marcas/${id}`);
+  };
 
   const handleDelete = async() => {
     const {isConfirmed} = await Swal.fire({
@@ -29,13 +36,13 @@ export const MarcaCard = ({id, nombre, logo, ambos}: Marca) => {
   return (
     <tr>
       <td className='p-4'>
-        {/* <img src={logo} alt={nombre} /> */}
+        {logo !== '' && <Image src={logo ?? ''} alt={nombre ?? ''} width={45} height={45} className='w-auto h-auto'/> }
       </td>
       <td className='p-4'>{nombre}</td>
       <td className='p-4 text-center'>{tdAmbos}</td>
       <td className='p-4'>
         <div className='flex gap-2 items-center justify-center'>
-          <LiaEdit size={35} className='border text-[#2563eb] border-[#2563eb] rounded-sm p-2 hover:text-gray-700 cursor-pointer'/>
+          <LiaEdit size={35} onClick={handlePatch} className='border text-[#2563eb] border-[#2563eb] rounded-sm p-2 hover:text-gray-700 cursor-pointer'/>
           <RiDeleteBin5Line onClick={handleDelete} size={35} className='border text-[#dc2626] border-[#dc2626] rounded-sm p-2 hover:text-gray-700 cursor-pointer'/>
         </div>
       </td>

@@ -23,7 +23,7 @@ return (
             <div className='flex justify-between items-center'>
                 <a className='flex items-center space-x-4' href='../'>
                     {/* Todo Logo */}
-                    <Image src="/images/Logo.png" alt="logo Blanco y Naranja" width={150} height={150} />
+                    <Image src="/images/Logo.png" alt="logo Blanco y Naranja" width={150} height={150} className='w-auto h-auto' />
                 </a>
 
                 {/* Navegacion Desktop */}

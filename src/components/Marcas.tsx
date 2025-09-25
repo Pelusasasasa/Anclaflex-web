@@ -1,8 +1,12 @@
-import { marcas } from '@/data/marcas'
+
 import React from 'react'
 import { MarcaItem } from './MarcaItem'
+import { useMarca } from '@/hooks'
 
 export const Marcas = () => {
+
+    const { marcas } = useMarca();
+
   return (
     <section id='marcas' className='bg-gray-200 py-20'>
         <div className='container mx-auto px-4 font-helvetica'>

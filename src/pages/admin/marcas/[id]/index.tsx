@@ -1,15 +1,22 @@
 import React from 'react'
+import { useRouter } from 'next/router'
+import { useMarca } from '@/hooks'
+import { IoIosArrowRoundBack } from 'react-icons/io'
+
 import AdminLayout  from '../../AdminLayout'
 import { Button } from '@/components/Button'
-import { IoIosArrowRoundBack } from 'react-icons/io'
-import { useRouter } from 'next/router'
 import FormularioNuevaMarca from '@/components/admin/FormularioNuevaMarca'
+
 const NuevaMarca = () => {
   const router = useRouter();
+  const { limpiarMarcaActiva } = useMarca();
 
   const volver = () => {
+    limpiarMarcaActiva();
     router.back();
-  }
+  };
+  
+
   return (
     <AdminLayout>
       <main className='bg-gray-300 text-black min-h-[calc(100vh-4rem)] flex flex-1 flex-col'>

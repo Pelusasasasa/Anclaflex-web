@@ -1,11 +1,28 @@
+import { subirLogo } from "@/helpers";
 import { verMensajeMarca } from "@/helpers/mensageMarca";
-import { Marca } from "@/interface";
+
 import { userMarcaStore } from "@/store/useMarcaStore"
 import { supabase } from "@/supabase/client";
 import Swal from "sweetalert2";
 
+interface Marca {
+    id?: number;
+    nombre: string;
+    file: File | null;
+    ambos: boolean;
+}
+
 export const useMarca = () => {
-    const {marcas, setMarcas, addMarca, deleteMarca} = userMarcaStore();
+    const {marcas, activeMarca, setActiveMarca, setMarcas, addMarca, deleteMarca, patchMarca, clearActive} = userMarcaStore();
+
+    const limpiarMarcaActiva = () => {
+        clearActive();
+    };
+
+    const startActiveMarca = (id: number) => {
+        const marca = marcas.find(marca => marca.id === id);
+        if(marca) setActiveMarca(marca);
+    };
 
     const startBorrarMarca = async(id: number) => {
         try {
@@ -22,16 +39,21 @@ export const useMarca = () => {
     };
 
     const startCrearMarca = async(marca: Marca): Promise<boolean> => {
+        let url: string = '';
         try {
-            const {error, status, data} = await supabase.from('marca').insert(marca).select();
-            
+            //Subimos primero el logo si es que esta
+            if(marca.file){
+                url = await subirLogo(marca.file, marca.nombre)  
+            };
+            const {error, status, data} = await supabase.from('marca').insert({logo: url, nombre: marca.nombre, ambos: marca.ambos}).select();
+            console.log(data);
+            console.log(error);
             if(error) throw await Swal.fire(verMensajeMarca(error.code), '', 'error');
 
             if(status !== 201) throw await Swal.fire('No se pudo cargar la marca, hable con el administrador', '', 'error');
-
             addMarca(data[0])
 
-            return true
+            return true;
 
         } catch (error) {
             console.log(error);
@@ -39,6 +61,25 @@ export const useMarca = () => {
         };
     };
 
+    const startModificarMarca = async(marca: Marca): Promise<boolean> => {
+        try {
+            const nuevosDatos = {
+                nombre: marca.nombre,
+                ambos: marca.ambos,
+                logo: marca.file ? await subirLogo(marca.file, marca.nombre) : ''
+            };
+
+            const {error, status, data } = await supabase.from('marca').update(nuevosDatos).eq('id', marca.id).select();
+            if(error) throw new Error(error.message);
+
+            if(status !== 200) throw await Swal.fire('No se pudo modificar la marca, hable con el administrador', '', 'error');
+            patchMarca(data[0]);
+            return true;
+        } catch (error) {
+            console.log(error);
+            return false
+        }
+    };
 
     const startTraerMarcas = async() => {
         try {
@@ -52,13 +93,19 @@ export const useMarca = () => {
         }
     };
 
+    
+
     return {
         //atributos
+        activeMarca,
         marcas,
 
         //metodos
+        limpiarMarcaActiva,
+        startActiveMarca,
         startBorrarMarca,
         startCrearMarca,
+        startModificarMarca,
         startTraerMarcas,
     }
 }
