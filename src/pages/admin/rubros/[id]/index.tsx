@@ -1,0 +1,33 @@
+import React from 'react'
+import AdminLayout from '../../AdminLayout'
+import { useRouter } from 'next/router';
+import { IoIosArrowBack } from 'react-icons/io';
+import { Button } from '@/components/Button';
+
+const RubroById = () => {
+    const router = useRouter();
+
+    const volver = () => {
+        router.back();
+    };
+  return (
+    <AdminLayout>
+        <main className='bg-gray-300 text-black min-h-[calc(100vh-4rem)] flex flex-1 flex-col'>
+            <div className='space-y-6'>
+                <div className='flex gap-2 items-center mx-5 py-2'>
+                    <div className='border rounded-sm border-gray-500 flex gap-2 items-center cursor-pointer hover:bg-gray-200' onClick={volver}>
+                        <IoIosArrowBack size={25}/>
+                        <Button texto='Volver a Rubros' className='bg-transparent hover:bg-transparent' />
+                    </div>
+                    <div>
+                        <h2 className='text-xl font-bold'>Nuevo rubro</h2>
+                        <h5 className='text-sm font-semibold text-gray-600'>Agregar Nuevo Rubro</h5>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </AdminLayout>
+  )
+}
+
+export default RubroById

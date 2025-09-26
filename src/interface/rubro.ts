@@ -1,5 +1,6 @@
 export interface Rubro {
     titulo: string;
+    id?: number;
     texto: string;
     img: string;
     textoDescriptivo?: string;

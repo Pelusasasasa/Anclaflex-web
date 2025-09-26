@@ -2,7 +2,7 @@
 
 ###Rubros:
 id: Clave identificadora.
-nombre: Nombre del rubro.
+titulo: Titulo del rubro.
 img: URL de la imagen.
 textoDescriptivo: texto que va a aparecer en la tarjeta en el home de la pagina
 textoWhatsapp: Texto que va a ser predeterminado para poder mandar con la api de whatsapp
