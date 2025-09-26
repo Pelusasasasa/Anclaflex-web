@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from '../Button'
+import { useForm } from '@/hooks';
+
+const initialForm = {
+  titulo: '',
+  img: '',
+  texto: '',
+  textoDescriptivo: '',
+  textoWhatsApp: '',
+  aplicaciones: [],
+  caracteristicas: []
+}
 
 const FormularioRubroById = () => {
+
+  const { titulo, img, texto, textoDescriptivo, textoWhatsApp, aplicaciones, caracteristicas, formState, onInputChange } = useForm(initialForm);
+
+  useEffect(() => {
+    console.log(formState)
+  }, [formState])
+
   return (
     <form className='flex flex-col gap-5 px-3'>
       <div className='bg-white rounded-sm shadow-xl'>
@@ -9,7 +27,7 @@ const FormularioRubroById = () => {
         <div className=' grid grid-cols-2 p-5 gap-5'>
           <div className='flex flex-col gap-2'>
             <label htmlFor="titulo">Titulo *</label>
-            <input placeholder='Ej: Griferia' className='border border-gray-400 bg-white px-2 py-1 rounded-sm placeholder:text-gray-400' type="text" name="" id="" />
+            <input placeholder='Ej: Griferia' className='border border-gray-400 bg-white px-2 py-1 rounded-sm placeholder:text-gray-400' type="text" name="titulo" id="titlu" value={titulo} onChange={onInputChange}/>
           </div>
 
           <div className='flex flex-col gap-2'>
@@ -19,7 +37,7 @@ const FormularioRubroById = () => {
 
           <div className='flex flex-col gap-2 col-span-2'>
             <label htmlFor="texto">Descripcion Corta *</label>
-            <textarea name="texto" id="texto" className='border border-gray-400 bg-white px-2 py-1 rounded-sm placeholder:text-gray-400'></textarea>
+            <input name="texto" id="texto" className='border border-gray-400 bg-white px-2 py-1 rounded-sm placeholder:text-gray-400' value={texto} onChange={onInputChange} />
           </div>
         </div>
       </div>
@@ -30,8 +48,14 @@ const FormularioRubroById = () => {
 
           <div className='flex flex-col gap-2'>
             <label htmlFor="textoDescriptivo">Introduccion</label>
-            <textarea name="textoDescriptivo" id="textoDescriptivo" className='border border-gray-400 bg-white px-2 py-1 rounded-sm placeholder:text-gray-400'></textarea>
+            <textarea name="textoDescriptivo" id="textoDescriptivo" className='border border-gray-400 bg-white px-2 py-1 rounded-sm placeholder:text-gray-400' value={textoDescriptivo} onChange={onInputChange}></textarea>
           </div>
+
+          <div className='flex flex-col gap-2'>
+            <label htmlFor="textoWhatsApp">Texto WhatsApp</label>
+            <input name="textoWhatsApp" id="textoWhatsApp" className='border border-gray-400 bg-white px-2 py-1 rounded-sm placeholder:text-gray-400' value={textoWhatsApp} onChange={onInputChange} />
+          </div>
+
           <div>
             <label htmlFor="caracteristicas">Caracteristicas</label>
             <input type="text" name="caracteristicas" id="caracteristicas" placeholder='Caracterisitca 1' className='border bg-white px-2 py-1 rounded-sm placeholder:text-gray-400 w-full border-gray-400'/>

@@ -74,7 +74,7 @@ return (
 
         <div className='bg-white mx-5 rounded-lg shadow-lg px-5 py-2'>
             <fieldset className='text-xl font-bold'>Informacion de la Marca</fieldset>
-            <form onSubmit={id !== 'negro' ? handlePatchMarca : handleCreateMarca}>
+            <form onSubmit={id !== 'nuevo' ? handlePatchMarca : handleCreateMarca}>
 
                 <div className='flex flex-col mt-5'>
                     <label htmlFor="nombre">Nombre de la Marca *</label>
