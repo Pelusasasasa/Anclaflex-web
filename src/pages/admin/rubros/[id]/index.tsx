@@ -3,6 +3,7 @@ import AdminLayout from '../../AdminLayout'
 import { useRouter } from 'next/router';
 import { IoIosArrowBack } from 'react-icons/io';
 import { Button } from '@/components/Button';
+import FormularioRubroById from '@/components/admin/FormularioRubroById';
 
 const RubroById = () => {
     const router = useRouter();
@@ -24,6 +25,8 @@ const RubroById = () => {
                         <h5 className='text-sm font-semibold text-gray-600'>Agregar Nuevo Rubro</h5>
                     </div>
                 </div>
+
+                <FormularioRubroById/>
             </div>
         </main>
     </AdminLayout>

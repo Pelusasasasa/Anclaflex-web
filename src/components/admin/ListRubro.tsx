@@ -5,9 +5,9 @@ import AdminRubroCard from './AdminRubroCard'
 
 const ListRubro = () => {
   return (
-    <div className='rounded-lg bg-white shadow-lg border-0 mx-2'>
+    <div className='rounded-lg bg-white shadow-lg border-0 mx-2 h-[calc(100%-5rem)] overflow-scroll'>
         <div className='p-6'>
-            <div className="overflow-y-auto">
+            <div className="">
                 <table className='w-full border-collapse text-black'>
                     <thead>
                         <tr className='border-gray-200 border-b'>

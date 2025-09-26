@@ -3,8 +3,15 @@ import AdminLayout  from '../AdminLayout'
 import { IoAddOutline } from 'react-icons/io5'
 import { Button } from '@/components/Button'
 import ListRubro from '@/components/admin/ListRubro'
+import { useRouter } from 'next/router'
 
 const RubrosAdmin = () => {
+  const router = useRouter();
+
+  const handleCreateRubro = () => {
+    router.push('/admin/rubros/nuevo')
+  };
+
   return (
     <AdminLayout>
       <main className='bg-gray-300 h-[calc(100%-3rem)]'>
@@ -14,7 +21,7 @@ const RubrosAdmin = () => {
             <h5 className='text-lg text-gray-600 font-semibold'>AdministraLos rubros que trabajas y como se muestrna en el sitio web</h5>
           </div>
 
-          <div className='flex bg-[#ed9b22] hover:cursor-pointer items-center rounded-lg px-2 hover:opacity-80'>
+          <div className='flex bg-[#ed9b22] hover:cursor-pointer items-center rounded-lg px-2 hover:opacity-80' onClick={handleCreateRubro}>
             <IoAddOutline size={20}/>
             <Button texto='Agregar Rubros' className='bg-[#ed9b22] hover:bg-[#ed9b22]'/>
           </div>
