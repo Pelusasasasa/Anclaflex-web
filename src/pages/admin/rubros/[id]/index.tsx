@@ -3,7 +3,7 @@ import AdminLayout from '../../AdminLayout'
 import { useRouter } from 'next/router';
 import { IoIosArrowBack } from 'react-icons/io';
 import { Button } from '@/components/Button';
-import FormularioRubroById from '@/components/admin/FormularioRubroById';
+import FormularioRubroById from '@/components/admin/rubro/FormularioRubroById';
 
 const RubroById = () => {
     const router = useRouter();
@@ -13,7 +13,7 @@ const RubroById = () => {
     };
   return (
     <AdminLayout>
-        <main className='bg-gray-300 text-black min-h-[calc(100vh-4rem)] flex flex-1 flex-col'>
+        <main className='bg-gray-300 text-black h-[calc(100%-3rem)] flex flex-1 flex-col overflow-y-scroll'>
             <div className='space-y-6'>
                 <div className='flex gap-2 items-center mx-5 py-2'>
                     <div className='border rounded-sm border-gray-500 flex gap-2 items-center cursor-pointer hover:bg-gray-200' onClick={volver}>

@@ -1,6 +1,17 @@
-import React, { useEffect } from 'react'
-import { Button } from '../Button'
+import React, { useEffect, useState } from 'react'
+import { Button } from '../../Button'
 import { useForm } from '@/hooks';
+import ListCaracteristicasRubro from './ListCaracteristicasRubro';
+
+interface Formulario {
+  titulo: string;
+  img: string;
+  texto: string;
+  textoDescriptivo: string;
+  textoWhatsApp: string;
+  aplicaciones: string[];
+  caracteristicas: string[];
+}
 
 const initialForm = {
   titulo: '',
@@ -14,7 +25,7 @@ const initialForm = {
 
 const FormularioRubroById = () => {
 
-  const { titulo, img, texto, textoDescriptivo, textoWhatsApp, aplicaciones, caracteristicas, formState, onInputChange } = useForm(initialForm);
+  const { titulo, img, texto, textoDescriptivo, textoWhatsApp, formState, onInputChange } = useForm<Formulario>(initialForm);
 
   useEffect(() => {
     console.log(formState)
@@ -55,23 +66,10 @@ const FormularioRubroById = () => {
             <label htmlFor="textoWhatsApp">Texto WhatsApp</label>
             <input name="textoWhatsApp" id="textoWhatsApp" className='border border-gray-400 bg-white px-2 py-1 rounded-sm placeholder:text-gray-400' value={textoWhatsApp} onChange={onInputChange} />
           </div>
-
-          <div>
-            <label htmlFor="caracteristicas">Caracteristicas</label>
-            <input type="text" name="caracteristicas" id="caracteristicas" placeholder='Caracterisitca 1' className='border bg-white px-2 py-1 rounded-sm placeholder:text-gray-400 w-full border-gray-400'/>
-          </div>
-
-          <div>
-            <label htmlFor="aplicaciones">Aplicaciones</label>
-            <input type="text" name="aplicaciones" id="aplicaciones" placeholder='Aplicacion 1' className='border bg-white px-2 py-1 rounded-sm placeholder:text-gray-400 w-full border-gray-400'/>
-          </div>
-
-
-          
         </div>
       </div>
 
-      <div className='flex justify-end gap-2'>
+      <div className='flex justify-end gap-2 mb-5'>
         <div>
           <Button texto='Cancelar' className='bg-transparent text-gray-800 border border-gray-400 hover:bg-gray-200'/>
           

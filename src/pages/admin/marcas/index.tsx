@@ -2,7 +2,7 @@ import React from 'react'
 import AdminLayout  from '../AdminLayout'
 import { Button } from '@/components/Button'
 import { IoAddOutline } from 'react-icons/io5'
-import ListMarca from '@/components/admin/ListMarca'
+import ListMarca from '@/components/admin/marca/ListMarca'
 import { useRouter } from 'next/router'
 
 const MarcasAdmin = () => {

@@ -2,8 +2,9 @@ import React from 'react'
 import AdminLayout  from '../AdminLayout'
 import { IoAddOutline } from 'react-icons/io5'
 import { Button } from '@/components/Button'
-import ListRubro from '@/components/admin/ListRubro'
+
 import { useRouter } from 'next/router'
+import ListRubro from '@/components/admin/rubro/ListRubro'
 
 const RubrosAdmin = () => {
   const router = useRouter();
